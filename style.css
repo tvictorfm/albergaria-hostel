@@ -1,0 +1,749 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+/* Variáveis de estilo */
+:root {
+  --cor-principal: #007bff;
+  --cor-hover: #ff5733;
+  --cor-hover-escura: #ff3b1f;
+  --cor-fundo-header: rgba(255, 255, 255, 0.9);
+  --sombra-header: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --sombra-menu: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos básicos e reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  font-family: Arial, sans-serif;
+  scroll-behavior: smooth;
+  height: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Estilo do Header */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: var(--cor-fundo-header);
+  box-shadow: var(--sombra-header);
+  z-index: 1000;
+  transition: padding 0.3s ease;
+}
+
+header.scrolled {
+  padding: 8px 15px;
+}
+
+.logo img {
+  width: 130px;
+  transition: width 0.3s ease;
+}
+
+header.scrolled .logo img {
+  width: 100px;
+}
+
+/* Ícone do menu hamburguer */
+.menu-toggle {
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: block;
+}
+
+/* Navegação */
+.navigation {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  position: absolute;
+  top: 60px;
+  right: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: var(--sombra-menu);
+  background-color: #f2f2f2;
+}
+
+.navigation.show {
+  display: flex;
+}
+
+.nav-link {
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--cor-hover);
+}
+
+/* Estilo da seção Início */
+.inicio-section {
+  position: relative;
+  background-image: url("./img/faixada.avif"); /* Imagem de fundo */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+#texto-alternante {
+  font-size: 3rem;
+  text-align: center;
+  animation: type 5s steps(20, end) infinite;
+}
+
+@keyframes type {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+section {
+  padding: 80px 15px;
+  height: 100vh;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+section.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Cor de sobreposição */
+  z-index: 1;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  padding: 20px;
+}
+
+/* Estilos de texto */
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+/* Botão "Reserve Agora" */
+.reserve-button {
+  background-color: var(--cor-hover);
+  color: white;
+  padding: 12px 25px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  animation: pulse 1.5s infinite;
+  transition: background-color 0.3s ease;
+  margin-top: 30px;
+}
+
+.reserve-button:hover {
+  background-color: var(--cor-hover-escura);
+}
+
+/* Animações */
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estilo da seção "O Refúgio" */
+.albergue-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 15px;
+  background-color: #f9f9f9;
+  height: 130vh;
+}
+
+.albergue-section .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 1100px;
+  width: 100%;
+  padding: 6rem 0rem 0rem 0rem;
+}
+
+.text-container {
+  flex: 1;
+  padding: 20px;
+}
+
+.h2-class-style {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.text-container h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.content h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.text-container p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+.image-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-container img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Animações */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contatos-section {
+  padding: 60px 15px;
+  background-color: #f1f1f1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.contatos-section .content {
+  max-width: 800px;
+  width: 100%;
+}
+
+/* Estilos dos ícones de contato */
+.contact-icons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  justify-content: center; /* Centraliza a grade inteira */
+  /* ... suas outras propriedades ... */
+  margin-bottom: 25px;
+}
+
+.contact-link {
+  font-size: 1.2rem;
+  color: #333;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s ease;
+  justify-self: center;
+  align-self: center;
+}
+
+.contact-link:hover {
+  color: var(--cor-hover);
+}
+
+/* Estilo da localização */
+.location p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.location i {
+  color: var(--cor-hover);
+}
+
+/* Mapa Google */
+.location iframe {
+  width: 100%;
+  height: 300px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Animação de Fade-In */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* CSS para a Section Roteiros */
+.roteiros-section {
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: fit-content;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.margin-bottom {
+  margin-bottom: 30px;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
+  transform: translateX(-30px);
+  opacity: 0;
+  animation: fadeInLeft 1s forwards;
+  transition: transform 0.3s ease;
+}
+
+.card:nth-child(4),
+.card:nth-child(5),
+.card:nth-child(6) {
+  animation-delay: 0.2s;
+}
+
+.card:hover .card-image {
+  transform: scale(1.5);
+}
+
+.card:hover .card-title {
+  opacity: 0;
+}
+
+.card:hover .card-description {
+  opacity: 1;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 1s ease;
+}
+
+.card-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.card-description {
+  font-size: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Animação de fade-in da esquerda para a direita */
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* CSS para a Section Experiências */
+.experiencias-section {
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #f9f9f9;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  overflow: hidden;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-card {
+  min-width: 100%;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background: white;
+  text-align: center;
+  transform: translateX(-30px);
+  opacity: 0;
+  animation: fadeInLeft 1s forwards;
+  transition: transform 0.3s ease;
+}
+
+.carousel-card:hover .guest-photo {
+  transform: scale(1.1);
+}
+
+.guest-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.review-content {
+  padding: 15px;
+}
+
+.guest-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.review-date {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.stars {
+  color: #ffcd3c;
+  margin-bottom: 10px;
+}
+
+.review-text {
+  font-size: 1rem;
+  color: #333;
+  margin-top: 10px;
+}
+
+/* Controles do Carrossel */
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  background-color: inherit;
+  color: grey;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.3s ease;
+}
+
+.carousel-control:hover {
+  color: black;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+/* Animação de Fade In */
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (min-width: 768px) {
+  .cards-container {
+    flex-wrap: nowrap;
+    flex-direction: row;
+  }
+}
+
+/* Estilos responsivos */
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+
+  .navigation {
+    display: flex;
+    position: static;
+    flex-direction: row;
+    gap: 15px;
+    box-shadow: none;
+    background-color: transparent;
+  }
+
+  header {
+    padding: 20px;
+  }
+
+  header.scrolled {
+    padding: 10px 20px;
+  }
+
+  .logo img {
+    width: 150px;
+  }
+
+  header.scrolled .logo img {
+    width: 80px;
+  }
+
+  .nav-link {
+    font-size: 1rem;
+  }
+
+  .albergue-section {
+    height: 100vh;
+  }
+
+  .albergue-section .content {
+    flex-direction: row;
+    padding: 0rem 0rem 0rem 0rem;
+  }
+
+  .contact-icons {
+    justify-content: flex-start;
+  }
+
+  .carousel-card {
+    min-width: 80%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .nav-link {
+    font-size: 1.1rem;
+  }
+}
+
+/* Estilos para o Footer */
+.footer {
+  background-color: #333;
+  color: #f2f2f2;
+  padding: 40px 15px;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-info,
+.footer-links,
+.footer-social,
+.footer-contact {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer h3,
+.footer h4 {
+  color: #ff5733;
+  margin-bottom: 15px;
+}
+
+.footer p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.footer-links ul,
+.footer-social ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li,
+.footer-social li {
+  margin: 8px 0;
+}
+
+.footer-links a,
+.footer-social a {
+  color: #f2f2f2;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover,
+.footer-social a:hover {
+  color: #ff5733;
+}
+
+.footer-contact p {
+  font-size: 0.9rem;
+}
+
+.footer-contact i {
+  color: #ff5733;
+  margin-right: 8px;
+}
+
+.footer-bottom {
+  border-top: 1px solid #444;
+  margin-top: 20px;
+  padding-top: 15px;
+  font-size: 0.8rem;
+}
+
+.footer .fab,
+.footer .fas {
+  color: #ff5733;
+  margin-right: 8px;
+}
+
+/* Animação de fade-in */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInFooter 1s forwards;
+}
+
+@keyframes fadeInFooter {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estilos para dispositivos móveis */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-info,
+  .footer-links,
+  .footer-social,
+  .footer-contact {
+    min-width: 100%;
+  }
+}
